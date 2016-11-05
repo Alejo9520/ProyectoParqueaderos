@@ -36,6 +36,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
 
+    //nueva instruccion
+
     private MapFragment mMapFragment; //Para llamar al Fragment
     private GoogleApiClient mGoogleApiClient = null;
     private Marker userLocation; //Marcador que apunta a la ubicacion del usuario
