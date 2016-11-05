@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ParkingEasy</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="name"> NOMBRE DEL PARQUEADERO </string>
+    <string name="horario"> HORARIO </string>
+    <string name="dias"> Horario </string>
+    <string name="descripcion"> Descripcion </string>
+    <string name="tarifahora"> TARIFA HORA </string>
+    <string name="carro"> Carro:  </string>
+    <string name="moto"> Moto: </string>
+    <string name="tarifadia"> TARIFA DIA </string>
+    <string name="carrod"> Carro:  </string>
+    <string name="motod"> Moto:  </string>
+    <string name="ubicacionParq"> UBICACION EN EL MAPA </string>
+    <string name="latitud"> Latitud: </string>
+    <string name="longitud"> Longitud: </string>
+
+</resources>

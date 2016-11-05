@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "470294890974",
+    "firebase_url": "https://parkingeasy-146120.firebaseio.com",
+    "project_id": "parkingeasy-146120",
+    "storage_bucket": "parkingeasy-146120.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470294890974:android:bcd2d83b6d95b8d0",
+        "android_client_info": {
+          "package_name": "co.edu.udea.computacionmovil.parkingeasy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470294890974-uk1nnlrrtvpq196bbvodlis2ad8041vg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.edu.udea.computacionmovil.parkingeasy",
+            "certificate_hash": "B42F33FD78253392EE343B4A2478CCF181B12AED"
+          }
+        },
+        {
+          "client_id": "470294890974-n0k9bn2pm6di298bd3cbae8fetovlbpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPeUXj92yKCMxnqfeTrdHSlTHplkDItDg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470294890974-n0k9bn2pm6di298bd3cbae8fetovlbpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
