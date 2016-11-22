@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Location location; //Variable que guarda todos los datos relacionados con la ubicacion del usuario
     private Parqueadero inicialesParqueadero[] = new Parqueadero[2]; //Parqueaderos registrados inicialmente
 
-    private static String PARQUEADEROS = "parqueaderos";
+    public static String PARQUEADEROS = "parqueaderos";
 
 
     @Override
@@ -88,9 +88,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             return;
         }
 
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 6000, 50, this);
+
+        //mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0,(LocationListener) mlocListener);
+
+
+
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+
         location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         Log.d("ggg", "valor de location: " + location);
+
+
 
 
         //Intent para la conexion con los otros fragments
@@ -111,9 +119,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        googleMap.setMyLocationEnabled(false);
+        googleMap.setMyLocationEnabled(true);
 
-        LatLng miUbicacion = new LatLng(location.getLatitude(), location.getLongitude());
+        LatLng miUbicacion = new LatLng(6.251568, -75.574756);
+        if(location!=null){
+            miUbicacion = new LatLng(location.getLatitude(), location.getLongitude());
+        }
         CameraPosition cameraPosition = CameraPosition.builder()
                 .target(miUbicacion)
                 .zoom(15)
@@ -218,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     Parqueadero p = parqueaderoArrayList.get(i);
                     if (p.getCodigo().equals(marker.getId())){
                         Log.d("marker",marker.getId());
-                        Toast.makeText(MainActivity.this, "Se presiono un marcador", Toast.LENGTH_SHORT).show();
+
 
                         /**
                          * Metodo que le manda los datos al fragment de Parqueadero
@@ -245,8 +256,28 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         googleMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener(){
             @Override
             public void onMapLongClick(LatLng latLng) {
-                Parqueadero p = new Parqueadero("" + parqueaderoArrayList.size(), "nombre" + parqueaderoArrayList.size(), 200, 100, 250, "MJ8-10", (float) latLng.latitude, (float) latLng.longitude, 120, "descripcion");
-                database.child(PARQUEADEROS).child(String.valueOf(parqueaderoArrayList.size())).setValue(p);
+                Parqueadero p = new Parqueadero((float) latLng.latitude, (float) latLng.longitude, parqueaderoArrayList.size());
+
+                CameraPosition cameraPosition = CameraPosition.builder()
+                        .target(latLng)
+                        .zoom(15)
+                        .build();
+
+                googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+                Fragment parqueaderoF = new RegistrarParqueadero();
+                final FragmentManager fragmentManager = getSupportFragmentManager();
+                ((RegistrarParqueadero)parqueaderoF).setDatos(p, fragmentManager);
+                FragmentTransaction ft = fragmentManager.beginTransaction();
+                ft.addToBackStack("algo");
+                //final FragmentManager fragmentManager = getFragmentManager();
+
+                ft.replace(R.id.map_container, parqueaderoF).commit();
+
+
+
+
+
             }
         });
 
@@ -265,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         if(location!=null) {
             userLocation = googleMap.addMarker(new MarkerOptions().title("Mi ubicacion").icon(BitmapDescriptorFactory.fromResource(R.drawable.moto)).position(new LatLng(location.getLatitude(), location.getLongitude())));
         }else{
-            Toast.makeText(MainActivity.this, "no hay localizaciòn", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "No se pudo determinar su ubicación", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -273,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onLocationChanged(Location location) {
-        Toast.makeText(MainActivity.this, "Hola "+userLocation.getPosition(), Toast.LENGTH_SHORT).show();
+        this.location = location;
         if(userLocation!=null){
             userLocation.setPosition(new LatLng(location.getLatitude(),location.getLongitude()));
         }

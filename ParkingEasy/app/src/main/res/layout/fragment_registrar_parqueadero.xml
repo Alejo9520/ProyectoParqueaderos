@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Registrar parqueadero"
+                android:textSize="16dp"
+                android:id="@+id/registrartitulo"
+                android:layout_gravity="center_horizontal" />
+
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Nombre *"
+                android:ems="10"
+                android:id="@+id/editNombrepar"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editHorario"
+                android:layout_gravity="center_horizontal"
+                android:hint="Horario *"/>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editHoraM"
+                android:layout_gravity="center_horizontal"
+                android:hint="Valor hora moto *"
+                android:inputType="number"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editValorDiaM"
+                android:layout_gravity="center_horizontal"
+                android:hint="Valor dia moto *"
+                android:inputType="number"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editHoraC"
+                android:layout_gravity="center_horizontal"
+                android:hint="Valor hora carro *"
+                android:inputType="number"/>
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editValorDiaC"
+                android:layout_gravity="center_horizontal"
+                android:hint="Valor dia carro *"
+                android:inputType="number"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editDescripcion"
+                android:layout_gravity="center_horizontal"
+                android:hint="Descripción" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="* Campo obligatorio"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/btnRegistrar"
+                android:text="Registrar"
+                android:drawableRight="@drawable/registrar"
+                android:layout_gravity="center"                />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

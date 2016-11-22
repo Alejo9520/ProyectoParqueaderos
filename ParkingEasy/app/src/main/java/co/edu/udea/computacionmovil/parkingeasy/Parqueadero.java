@@ -20,7 +20,13 @@ public class Parqueadero {
 
     }
 
-    public Parqueadero(String cod,String nombre, long valordiacarro, long valorhoracarro, long valordiamoto, String horario, float latitud, float longitud, long valorhoramoto, String descripcion) {
+    public Parqueadero(float latitud, float longitud, long valordiamoto) {
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.valordiamoto = valordiamoto;
+    }
+
+    public Parqueadero(String cod, String nombre, long valordiacarro, long valorhoracarro, long valordiamoto, String horario, float latitud, float longitud, long valorhoramoto, String descripcion) {
         this.codigo = cod;
         this.nombre = nombre;
         this.valordiacarro = valordiacarro;
